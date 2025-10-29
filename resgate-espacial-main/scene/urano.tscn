@@ -1,0 +1,117 @@
+[gd_scene load_steps=11 format=4 uid="uid://cv5wrclf7dhrm"]
+
+[ext_resource type="PackedScene" uid="uid://c3yekcieursg6" path="res://entidade/player.tscn" id="1_5cvh8"]
+[ext_resource type="TileSet" uid="uid://bedebn3mvd0ux" path="res://tiles/train.tres" id="2_x5ne8"]
+[ext_resource type="Texture2D" uid="uid://c0hq8vnc0xupy" path="res://sprites/Seasonal Tilesets/1 - Grassland/Grassland_entities (16 x 16).png" id="3_mhfb6"]
+[ext_resource type="Texture2D" uid="uid://clgosf3or5eqe" path="res://sprites/Seasonal Tilesets/2 - Autumn Forest/Autumn_entities (16 x 16).png" id="4_iymnk"]
+[ext_resource type="Texture2D" uid="uid://doei4ym6rcdua" path="res://sprites/Seasonal Tilesets/5 - Misc. universal tiles/House (112 x 96).png" id="5_6e0em"]
+[ext_resource type="Texture2D" uid="uid://84fa8h3h184q" path="res://sprites/Seasonal Tilesets/4 - Winter World/Background parts/_Complete_static_BG_(288 x 208).png" id="6_5cvh8"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xwcet"]
+texture = ExtResource("3_mhfb6")
+15:2/0 = 0
+16:2/0 = 0
+17:2/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+16:4/0 = 0
+17:4/0 = 0
+18:4/0 = 0
+1:5/0 = 0
+3:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+14:5/0 = 0
+16:5/0 = 0
+18:5/0 = 0
+9:1/size_in_atlas = Vector2i(3, 3)
+9:1/0 = 0
+1:1/size_in_atlas = Vector2i(3, 3)
+1:1/0 = 0
+1:1/0/z_index = 1
+5:1/size_in_atlas = Vector2i(3, 3)
+5:1/0 = 0
+5:1/0/z_index = 1
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_va604"]
+texture = ExtResource("4_iymnk")
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+17:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+17:3/0 = 0
+18:3/0 = 0
+14:4/0 = 0
+16:4/0 = 0
+18:4/0 = 0
+1:5/0 = 0
+3:5/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xlg7c"]
+texture = ExtResource("5_6e0em")
+0:0/size_in_atlas = Vector2i(7, 6)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 8)
+
+[sub_resource type="TileSet" id="TileSet_p1ry8"]
+sources/0 = SubResource("TileSetAtlasSource_xwcet")
+sources/2 = SubResource("TileSetAtlasSource_xlg7c")
+sources/1 = SubResource("TileSetAtlasSource_va604")
+
+[node name="Game" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_5cvh8")]
+z_index = 2
+position = Vector2(11, 162)
+collision_layer = 128
+platform_wall_layers = 1
+
+[node name="tile" type="Node2D" parent="."]
+position = Vector2(139, -5)
+
+[node name="Teerain" type="TileMapLayer" parent="tile"]
+position = Vector2(-287, 1)
+tile_map_data = PackedByteArray("AAAsABIABAACAAMAAAAuABAABAACAAMAAAAwAA4ABAACAAMAAAAyAA4ABAACAAMAAAA0AA4ABAACAAMAAAA2AA4ABAACAAMAAAA4AA4ABAACAAMAAAA6AA4ABAACAAMAAAA8AA4ABAACAAMAAAA9AA4ABAACAAMAAAA+AAwABAAEAAEAAAA+AA4ABAAGAAMAAAA/AAwABAAEAAEAAAA/AA4ABAAGAAMAAABAAAwABAAEAAEAAABAAA4ABAAGAAMAAABBAAoABAAEAAEAAABBAA4ABAAGAAMAAABCAA4ABAAGAAMAAABDAA4ABAAGAAMAAABEAA4ABAAGAAMAAABFAA4ABAAGAAMAAABGAA4ABAAGAAMAAABHAA4ABAAGAAMAAABIAA4ABAAGAAMAAABJAA4ABAAGAAMAAABKAA4ABAAGAAMAAABLAA4ABAAGAAMAAABMAA4ABAAGAAMAAAAYABQABAACAAMAAAAaAAUABAACAAMAAAAaAAkABAACAAMAAAAaAA0ABAACAAMAAAAaABEABAACAAMAAAAaABMABAACAAMAAAAbAAQABAACAAMAAAAbAAcABAACAAMAAAAbAAsABAACAAMAAAAbAA8ABAACAAMAAAAeAAQABAACAAMAAAAhAAQABAACAAMAAAAkABQABAACAAMAAAAmABQABAACAAMAAAAoABQABAACAAMAAAAqABQABAACAAMAAAAJAAsABAACAAMAAAAKAAsABAACAAMAAAALAAsABAACAAMAAAAMAAsABAACAAMAAAANAAsABAACAAMAAAAOAAsABAACAAMAAAAPAAsABAACAAMAAAAQAAsABAACAAMAAAARAAwABAACAAMAAAASAA0ABAACAAMAAAATAA4ABAACAAMAAAAUAA8ABAACAAMAAAAVABAABAACAAMAAAAWABEABAACAAMAAABCAAoABAAEAAEAAABDAAoABAAEAAEAAABEAAgABAAEAAEAAABFAAgABAAEAAEAAABGAAgABAAEAAEAAABIAAYABAAEAAEAAABJAAYABAAEAAEAAABMAAUABAAEAAEAAABLAAUABAAEAAEAAAA=")
+tile_set = ExtResource("2_x5ne8")
+
+[node name="decoration" type="TileMapLayer" parent="tile"]
+tile_map_data = PackedByteArray("AAA6AAQAAAADAAUAAAA=")
+tile_set = SubResource("TileSet_p1ry8")
+
+[node name="CompleteStaticBg(288X208)" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(541.5, 184.5)
+scale = Vector2(3.78819, 1.77404)
+texture = ExtResource("6_5cvh8")
