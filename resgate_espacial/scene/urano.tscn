@@ -149,3 +149,5 @@ z_index = -2
 position = Vector2(541.5, 184.5)
 scale = Vector2(3.78819, 1.77404)
 texture = ExtResource("6_5cvh8")
+
+zoom = Vector2(0.7, 0.7)
