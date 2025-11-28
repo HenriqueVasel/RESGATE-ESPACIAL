@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmw1nhj2460jw"]
+
+[ext_resource type="Script" uid="uid://inj0kxpie4el" path="res://gameover.gd" id="1_eeur3"]
+[ext_resource type="Texture2D" uid="uid://bfyrqlysqwdpi" path="res://sprites/Untitled.png" id="1_tpdqf"]
+[ext_resource type="Texture2D" uid="uid://d1e055h4rf6vf" path="res://sprites/game_over.png" id="2_eeur3"]
+
+[node name="gameover" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eeur3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 399.0
+offset_bottom = 206.0
+texture = ExtResource("1_tpdqf")
+expand_mode = 2
+
+[node name="Gameover" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -84.0
+offset_right = 84.0
+offset_bottom = 40.0
+grow_horizontal = 2
+texture = ExtResource("2_eeur3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 399.0
+offset_bottom = 206.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+modulate = Color(0.9507913, 0.94502205, 0.95253545, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Recomeçar
+"
+flat = true
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit Game
+"
+flat = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://fenq8lu56tdw"]
+
+[ext_resource type="Script" uid="uid://crc1k8cv53ger" path="res://goal.gd" id="1_0qle8"]
+[ext_resource type="Texture2D" uid="uid://cfy0ccjldi658" path="res://sprites/spaceRockets_001.png" id="1_6k3qi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qle8"]
+size = Vector2(45.5, 95)
+
+[node name="goal" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_0qle8")
+
+[node name="sprite" type="Sprite2D" parent="."]
+position = Vector2(1.9062495, -38.5)
+scale = Vector2(0.26383197, 0.19518715)
+texture = ExtResource("1_6k3qi")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(1, -47)
+shape = SubResource("RectangleShape2D_0qle8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

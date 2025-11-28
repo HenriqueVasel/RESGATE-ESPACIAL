@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://fvo4qur3t57x"]
+
+[ext_resource type="Script" uid="uid://8uruv5bbrgio" path="res://scripts/coin.gd" id="1_ldkip"]
+[ext_resource type="Texture2D" uid="uid://klrfp44tjoa3" path="res://sprites/Double/gem_yellow.png" id="1_qbwpe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1x375"]
+radius = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldkip"]
+atlas = ExtResource("1_qbwpe")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rdkb7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldkip")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="coin" type="Area2D"]
+script = ExtResource("1_ldkip")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1x375")
+disabled = true
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+position = Vector2(-7.450581e-09, 0)
+scale = Vector2(0.12304688, 0.12890624)
+sprite_frames = SubResource("SpriteFrames_rdkb7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
